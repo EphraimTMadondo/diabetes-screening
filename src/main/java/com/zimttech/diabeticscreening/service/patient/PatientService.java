@@ -1,4 +1,4 @@
-package com.zimttech.diabeticscreening.service;
+package com.zimttech.diabeticscreening.service.patient;
 
 import com.zimttech.diabeticscreening.entities.Patient;
 

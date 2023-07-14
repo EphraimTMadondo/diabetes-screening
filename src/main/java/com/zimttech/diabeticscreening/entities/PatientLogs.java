@@ -25,16 +25,4 @@ public class PatientLogs {
 
     @OneToMany
     private List<Vital> vitals;
-
-    @Column(name="blood_pressure")
-    private String bloodPressure;
-
-    @Column(name="weight")
-    private String weight;
-
-    @Column(name="height")
-    private String height;
-
-    @Column(name="glucose_level")
-    private String glucoseLevel;
 }

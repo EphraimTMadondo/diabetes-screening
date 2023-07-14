@@ -1,7 +1,7 @@
 package com.zimttech.diabeticscreening.api;
 
-import com.zimttech.diabeticscreening.entities.Patient;
-import com.zimttech.diabeticscreening.service.patient.PatientService;
+import com.zimttech.diabeticscreening.entities.UnitOfMeasure;
+import com.zimttech.diabeticscreening.service.uom.UnitOfMeasureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,17 +14,17 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 /**
  *
  * @author Ephraim Madodno
- * Patient Rest API Controller - /api/v1/patients
+ * Patient Rest API Controller - /api/v1/uom
  *
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = {"/api/v1/patients"}, produces = APPLICATION_JSON_VALUE)
-public class PatientController {
-    private final PatientService patientService;
+@RequestMapping(path = {"/api/v1/uom"}, produces = APPLICATION_JSON_VALUE)
+public class UnitOfMeasureController {
+    private final UnitOfMeasureService unitOfMeasureService;
 
     @GetMapping
-    public List<Patient> getPatients() {
-        return patientService.getAll();
+    public List<UnitOfMeasure> getUoms() {
+        return unitOfMeasureService.getAll();
     }
 }
