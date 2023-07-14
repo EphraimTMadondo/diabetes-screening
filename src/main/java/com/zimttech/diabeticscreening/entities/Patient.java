@@ -1,9 +1,7 @@
 package com.zimttech.diabeticscreening.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.zimttech.diabeticscreening.entities.enums.Gender;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -23,6 +21,7 @@ import java.time.LocalDateTime;
 @Entity(name = "patients")
 public class Patient {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="national_identification_number")
@@ -38,15 +37,12 @@ public class Patient {
     @Column(name="date_of_birth")
     private LocalDateTime dateOfBirth;
 
-    @Column(name="address")
     @OneToOne
     private Address address;
 
-    @Column(name="contact_details")
     @OneToOne
     private Contact contact_details;
 
-    @Column(name="next_of_keen")
     @OneToOne
     private Contact next_off_keen;
 

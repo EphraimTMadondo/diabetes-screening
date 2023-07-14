@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class PatientServiceImpl implements PatientService {
-    private PatientRepository patientRepository;
+    private final PatientRepository patientRepository;
     @Override
     public List<Patient> getAll() {
         return patientRepository.findAll();

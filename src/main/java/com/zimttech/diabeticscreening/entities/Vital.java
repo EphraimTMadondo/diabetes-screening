@@ -14,9 +14,11 @@ import java.time.Instant;
  */
 @Data
 @NoArgsConstructor
-@Entity(name = "patient_logs")
+@Entity(name = "patient_vitals")
 public class Vital {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name="vital_name")
@@ -25,7 +27,6 @@ public class Vital {
     @Column(name="vital_value")
     private Double value;
 
-    @Column(name="vital_uom")
     @OneToOne
     private UnitOfMeasure uom;
 

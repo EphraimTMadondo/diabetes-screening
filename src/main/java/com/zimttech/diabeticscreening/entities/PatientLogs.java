@@ -17,13 +17,12 @@ import java.util.List;
 @Entity(name = "patient_logs")
 public class PatientLogs {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="patient")
     @ManyToOne
     private Patient patient;
 
-    @Column(name="vitals")
     @OneToMany
     private List<Vital> vitals;
 

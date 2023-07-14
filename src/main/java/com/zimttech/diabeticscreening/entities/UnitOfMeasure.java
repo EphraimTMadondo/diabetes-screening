@@ -1,8 +1,6 @@
 package com.zimttech.diabeticscreening.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +14,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity(name = "unit_of_measure")
 public class UnitOfMeasure {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name="uom_name")
