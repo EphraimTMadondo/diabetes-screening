@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler{
     @ExceptionHandler(value = PatientNotFoundException.class)
-    public ResponseEntity<Object> exception(PatientNotFoundException exception) {
-        return new ResponseEntity<>("Patient with requested ID doest not exist", HttpStatus.NOT_FOUND);
+    public ResponseEntity<Object> exception(PatientNotFoundException e) {
+        HttpStatus status = HttpStatus.NOT_FOUND; // 404
+        return new ResponseEntity<>(
+            new ErrorResponse(e.getMessage()),
+            status
+    );
     }
 }
