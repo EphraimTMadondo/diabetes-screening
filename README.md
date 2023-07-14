@@ -42,7 +42,7 @@ history.events.logs.base-directory=[path to you directory path]
 http://localhost:9000
 
 ### API Documentation
-http://localhost:9000/api-docs
+http://localhost:9000/swagger-ui/index.html
 
 
 
