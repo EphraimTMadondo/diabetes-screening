@@ -26,4 +26,29 @@ public class PatientServiceImpl implements PatientService {
         }
         throw new PatientNotFoundException();
     }
+
+    @Override
+    public Patient createPatient(Patient patient) {
+        return patientRepository.save(patient);
+    }
+
+    @Override
+    public Patient updatePatient(Long patientID, Patient patient) {
+        Optional<Patient> existingPatient = patientRepository.findById(patientID);
+        if (!existingPatient.isPresent()) {
+            throw new PatientNotFoundException();
+        }
+        patient.setPatientID(existingPatient.get().getPatientID());
+        return patientRepository.save(patient);
+    }
+
+    @Override
+    public boolean deletePatient(Long patientID) {
+        Optional<Patient> existingPatient = patientRepository.findById(patientID);
+        if (!existingPatient.isPresent()) {
+            throw new PatientNotFoundException();
+        }
+        patientRepository.delete(existingPatient.get());
+        return true;
+    }
 }

@@ -8,4 +8,9 @@ public interface PatientService {
     List<Patient> getAll();
 
     Patient findPatient(long patientID);
+
+    Patient createPatient(Patient drone);
+    Patient updatePatient(Long patientID, Patient patient);
+
+    boolean deletePatient(Long patientID);
 }

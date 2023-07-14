@@ -2,11 +2,13 @@ package com.zimttech.diabeticscreening.api;
 
 import com.zimttech.diabeticscreening.entities.Patient;
 import com.zimttech.diabeticscreening.service.patient.PatientService;
+import com.zimttech.diabeticscreening.utils.MessageResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +33,24 @@ public class PatientController {
     @GetMapping("/{patientID}")
     public Patient getPatient(@PathVariable long patientID) {
         return patientService.findPatient(patientID);
+    }
+
+    @PostMapping(value="/create",consumes=APPLICATION_JSON_VALUE)
+    @Operation(summary = "Create a patient record")
+    public ResponseEntity<Patient> crteatePatient(@Valid @RequestBody Patient patient){
+        Patient result = patientService.createPatient(patient);
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+    @PutMapping(value="/update",consumes=APPLICATION_JSON_VALUE)
+    @Operation(summary = "Update a patient record")
+    public ResponseEntity<Patient> registerDrone(@Valid @RequestBody Patient patient){
+        Patient result = patientService.createPatient(patient);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @DeleteMapping("/{patientID}")
+    public ResponseEntity<Object> deletePatient(@PathVariable long patientID) {
+        patientService.deletePatient(patientID);
+        return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse("Object Successfully removed"));
     }
 }
