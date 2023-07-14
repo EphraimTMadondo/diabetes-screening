@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long patientID;
 
     @Column(name="national_identification_number")
     private String nidNumber;

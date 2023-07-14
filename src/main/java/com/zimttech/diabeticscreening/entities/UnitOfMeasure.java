@@ -17,7 +17,7 @@ public class UnitOfMeasure {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long uomID;
 
     @Column(name="uom_name")
     private String name;

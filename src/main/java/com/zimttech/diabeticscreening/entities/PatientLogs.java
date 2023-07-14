@@ -18,7 +18,7 @@ import java.util.List;
 public class PatientLogs {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long patientLogID;
 
     @ManyToOne
     private Patient patient;

@@ -19,7 +19,7 @@ public class Vital {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long vitalID;
 
     @Column(name="vital_name")
     private String name;

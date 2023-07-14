@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity(name = "addresses")
 public class Address {
     @Id
-    private Long id;
+    private Long addressID;
 
     @Column(name = "address_name")
     private String name;
